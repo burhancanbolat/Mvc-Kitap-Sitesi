@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BurhanKitap</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Kitaplar.styles.css" asp-append-version="true" />
+    
+</head>
+<body>
+<header>
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-black mb-2" >
+            <div class="container ">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BurhanKitap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
+                <ul class="navbar-nav flex-grow-1">
+                    
+                    @await Component.InvokeAsync("GenreMenu")
+                </ul>
+                <div class="kutu1">
+                <form asp-controller="Home" asp-action="Search" method="get" class="d-flex" role="search" >
+                    <input class="form-control me-2" type="search" placeholder="ara..." name="keyword"  aria-label="Search" value="@ViewContext.HttpContext.Request.Query["keyword"].ToString()">
+                    <button class="btn btn-success" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+
+                    </div>
+            </div>
+            </div>
+            </nav>
+
+        
+
+  
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="bg-black py-5 m-5" >
+        <div class="container text-white">
+         <div class="row">
+                <div class="col-md-3">
+                    <h3><b>Spotify</b></h3>
+                    <a href="https://open.spotify.com/?" target="_blank" > <i class="bi bi-spotify"></i></a>
+                </div>
+                <div class="col-md-2">
+                <ul class="list-unstyled">
+                    <li class="text-muted mb-3">ŞİRKET</li>
+                        <a asp-action="About" class="text-light">Hakkımızda</a>
+                        <li> <a asp-action="Privacy" class="text-light">Gizlilik Politikası</a></li>
+                       <li>Haberler</li>
+                       <li>Blog</li>
+                </ul>
+                    <div class="col-md-2">
+                    <ul class="list-unstyled">
+                        <li class="text-muted mb-3">TOPLULUKLAR</li>
+                        <li>Geliştiriciler</li>
+                        <li>Markalar</li>
+                        <li>Yatırımcılar</li>
+                    </ul>
+                    </div>
+                    
+               </div>
+                <div class="col-md-4  text-right">
+                    <a href="https://tr-tr.facebook.com/" target="_blank"><i class="bi bi-facebook mx-3"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"> <i class="bi bi-instagram mx-3"></i></a>
+                    <a href="https://www.youtube.com/" target="_blank">  <i class="bi bi-youtube mx-3"></i></a>
+                    <a href="#"> <i class="bi bi-whatsapp mx-3"></i></a>
+                    <a href="https://twitter.com/home" target="_blank"><i class="bi bi-twitter mx-3"></i></a>
+
+                </div>
+              
+                
+         </div>
+
+         <div class="container">
+            &copy; @DateTime.Today.Year - BurhanKitap  
+        </div>
+
+
+            </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

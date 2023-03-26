@@ -1,0 +1,50 @@
+﻿@model Book
+@{
+    ViewData["title"] = Model.Name;
+}
+
+<div class="container m-3"> 
+    <div class="col-12 col-md-12">
+ 
+        <img src="@Model.Image" class="img-fluid" width="240" />
+  
+        <div class="box-shadow">
+            
+               
+        <div class="h1">@Model.Name</div>
+        <div class="h3">@Model.Price</div>
+        <div class="h3">@Model.Writer</div>
+        <div class="h3">@Model.Editör</div>
+
+        <form>
+            <label for="sayılar">Adet</label>
+            <select id="sayılar" name="sayı">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </form>
+       
+        <a asp-action="Book" class="btn btn-danger">Sepete Ekle</a>
+        
+                </div>
+            </div>
+        </div>
+        
+       
+       <div class="col-12 col-md-12">
+          
+        <article class="blockquote">@Html.Raw( Model.Description)</article>
+            
+    </div> 
+        
+   

@@ -1,0 +1,29 @@
+﻿@model DashboardViewModel
+@{
+}
+
+<h4>Hoş Geldiniz...</h4>
+<div class="row row-cols-1 row-cols-md-4 gap-2">
+    <div class="card bg-success text-white">
+        <div class="card-body">
+            <div class="h4">
+                Tür
+            </div>
+            <div class="h1">
+                @Model.Genres.ToString("n0")
+                <div class="h2 text-white-50">Adet</div>
+            </div>
+        </div>
+    </div>
+    <div class="card bg-danger text-white">
+        <div class="card-body">
+            <div class="h4">
+                Kitap
+            </div>
+            <div class="h1">
+                @Model.Books.ToString("n0")
+                <div class="h2 text-white-50">Adet</div>
+            </div>
+        </div>
+    </div>
+</div>

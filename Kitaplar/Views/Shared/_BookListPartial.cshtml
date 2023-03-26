@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Book>
+     <div class="center"> 
+     <div class="container float-md-end m-4">
+         
+                <form>
+                <label for="öneri"></label>
+               <select id="öneriler" name="öneri">
+            
+                <option selected disabled>Önerilen</option>
+                <option value="1">En Düşük Fiyat</option>
+                <option value="2">En Yüksek Fiyat</option>
+                <option value="3">En Yeniler</option>
+                <option value="4">Çok Satanlar</option>
+
+              </select>
+               </form>
+</div>
+</div>
+
+     <div class="row row-cols-1 row-cols-md-5 g-4">
+    @foreach (var book in Model)
+    {
+        <div class="col">
+            <div class="card h-100 box ">
+                <a asp-action="Book" asp-route-id="@book.Id">
+                    <img class="card-img-top" src="@book.Image" />
+                </a>
+                <div class="card-body ">
+                    <div class="card-title h6 text-truncate">
+                        <a asp-action="Book" asp-route-id="@book.Id" class="text-decoration-none">
+                            @book.Name
+                        </a>
+                    </div>
+                    <div class="card-text">@book.Price.ToString("c2")</div>
+                    <div class="small">@book.Genre!.Name</div>
+                    <div class="card-text">@book.Writer</div>
+
+               
+                </div> 
+                </div>
+
+        </div>
+    }
+</div>
+
